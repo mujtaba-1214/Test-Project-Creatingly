@@ -1,6 +1,6 @@
 import { loginPage } from "../../PageObjects";
 
-export default function QA2281_LoginWithAdmin() {
+export default function HomePage_Creatingly() {
   cy.visit(Cypress.env("devUrl"));
   cy.wait(2000);
   //30 Seconds Load time for creatingly resources
