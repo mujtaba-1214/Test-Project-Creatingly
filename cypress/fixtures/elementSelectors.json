@@ -1,0 +1,14 @@
+{
+    "chart": "[data-testid='Chart']",
+    "button": "[data-testid='Button']",
+    "actionButton": "[data-testid='ActionButton']",
+    "calendar": "[data-testid='Calendar']",
+    "chat": "[data-testid='Chat']",
+    "accordion": "[data-testid='Accordion']",
+    "checkbox": "[data-testid='Checkbox']",
+    "chips": "[data-testid='Chips']",
+    "content": "[data-testid='Content']",
+    "datePicker": "[data-testid='DatePicker']",
+    "floatingButton": "[data-testid='FloatingButton']",
+    "item": "[data-testid='Item']"
+  }
