@@ -10,7 +10,7 @@ describe("Compatibility Test Case", () => {
   ];
 
   viewports.forEach((viewport) => {
-    it(`Verifies compatibility of interacting with the 5th element at ${viewport.width}x${viewport.height}`, () => {
+    it(`Verifies compatibility of interacting with the element at ${viewport.width}x${viewport.height}`, () => {
       cy.viewport(viewport.width, viewport.height);
       CompatibilityTest(5); // Adjust the index as needed
     });
