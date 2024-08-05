@@ -1,4 +1,4 @@
-import PerformanceTest from "../../support/TestCases/Login_Page/PerformanceTest";
+import PerformanceTest from "../support/TestCases/PerformanceTest";
 
 describe("Performance Test Case", () => {
   it("Measures performance of interacting with the 5th element", () => {

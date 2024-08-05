@@ -1,4 +1,4 @@
-import CompatibilityTest from "../../support/TestCases/Login_Page/CompatibilityTest";
+import CompatibilityTest from "../support/TestCases/CompatibilityTest";
 
 describe("Compatibility Test Case", () => {
   const viewports = [
