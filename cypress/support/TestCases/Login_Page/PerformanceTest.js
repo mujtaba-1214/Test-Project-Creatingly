@@ -1,13 +1,24 @@
-export default function HomePage_Creatingly(elementIndex) {
-  //Functional Test Case - 
-  //User should be able to drop a chart or any element and riseze it to the size of artboard
+export default function PerformanceTest(elementIndex) {
+  let totalInteractions = 0;
+  const startTime = new Date().getTime();
+
+  // Function to log performance metrics
+  function logMetrics() {
+    const endTime = new Date().getTime();
+    const duration = (endTime - startTime) / 1000; // in seconds
+    const throughput = totalInteractions / duration;
+
+    cy.log(`Total Interactions: ${totalInteractions}`);
+    cy.log(`Duration: ${duration} seconds`);
+    cy.log(`Throughput: ${throughput} interactions/second`);
+  }
+
   cy.visit(Cypress.env("devUrl"));
   cy.wait(2000);
-  // 30 Seconds Load time for creatingly resources
   cy.wait(5000); // uncaughtexceptionHandling in e2e.js
 
   // Handle confirmation dialog
-  cy.contains('.notiflix-confirm-content',{ force: true }).then(($overlay) => {
+  cy.get('.notiflix-confirm-content',{ force: true }).then(($overlay) => {
     if ($overlay.is(':visible')) {
       cy.get('#NXConfirmButtonOk').should('be.visible').click();
     } else {
@@ -34,6 +45,8 @@ export default function HomePage_Creatingly(elementIndex) {
       // Get the element based on the configurable index
       const selectedElement = $elements[elementIndex - 1]; // Convert to zero-based index
       cy.log(`Interacting with element type: ${selectedElement.getAttribute('data-testid')}`);
+
+      totalInteractions += 1;
       
       // Dispatch mouse events for drag and drop if necessary
       const coords = selectedElement.getBoundingClientRect();
@@ -55,5 +68,6 @@ export default function HomePage_Creatingly(elementIndex) {
     } else {
       cy.log('Configured index exceeds the number of available elements.');
     }
+    logMetrics();
   });
 }
